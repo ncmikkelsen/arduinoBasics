@@ -12,6 +12,5 @@ class Input
 
   private:
     int _pin;
-    bool _internalPullup;
     bool _invertedLogic;
 };
