@@ -1,5 +1,5 @@
-#ifndef "Input_h"
-#define "Input_h"
+#ifndef Input_h
+#define Input_h
 
 #include "Arduino.h"
 
@@ -10,7 +10,8 @@ class Input
     bool isOn();
     bool isOff();
 
-  private:
+  protected:
     int _pin;
     bool _invertedLogic;
 };
+#endif
