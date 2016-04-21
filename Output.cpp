@@ -5,6 +5,7 @@ Output::Output(int pin){
   pinMode(pin, OUTPUT);
   _pin = pin;
   _state = LOW;
+  off();
 }
 
 bool Output::getState(){

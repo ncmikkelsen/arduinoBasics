@@ -6,7 +6,7 @@
 class Button : public Input
 {
   public:
-    Button(pin, invertedLogic = false, internalPullup = false) : Input(pin, invertedLogic, internalPullup){}
+    Button(int pin, bool invertedLogic = false, bool internalPullup = false) : Input(pin, invertedLogic, internalPullup){}
     ;
     void getStatus();
 

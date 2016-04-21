@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "Input.h"
 
-Input::Input(pin, invertedLogic, internalPullup){
+Input::Input(int pin, bool invertedLogic, bool internalPullup){
   if(internalPullup){
     pinMode(pin, INPUT_PULLUP);
   } else {
@@ -13,7 +13,7 @@ Input::Input(pin, invertedLogic, internalPullup){
 }
 
 bool Input::isOn(){
-  if(invertedLogic){
+  if(_invertedLogic){
     return !digitalRead(_pin);
   } else{
     return digitalRead(_pin);
@@ -21,7 +21,7 @@ bool Input::isOn(){
 }
 
 bool Input::isOff(){
-  if(invertedLogic){
+  if(_invertedLogic){
     return digitalRead(_pin);
   } else{
     return !digitalRead(_pin);

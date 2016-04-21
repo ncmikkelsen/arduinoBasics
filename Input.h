@@ -6,7 +6,7 @@
 class Input
 {
   public:
-    Input(pin, invertedLogic = false, internalPullup = false);
+    Input(int pin, bool invertedLogic = false, bool internalPullup = false);
     bool isOn();
     bool isOff();
 
