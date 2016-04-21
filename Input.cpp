@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "Input.h"
 
+
 Input::Input(int pin, bool invertedLogic, bool internalPullup){
   if(internalPullup){
     pinMode(pin, INPUT_PULLUP);
