@@ -7,11 +7,12 @@ class Button
 {   
   public:     
     Button(int pin, bool invertedLogic, bool internalPullup);     
-    float getStatus();     
-    void update();     
+    void update();
+    bool isUp();     
     bool isDown();
-    bool isUp();
-    
+    bool isClicked();
+    bool isHeld();
+    bool isPressed();
 
   private:
     bool _lastState;

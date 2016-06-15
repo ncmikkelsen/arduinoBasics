@@ -10,12 +10,17 @@ Button::Button(int pin, bool invertedLogic, bool internalPullup){
   _pin = pin;
   _invertedLogic = invertedLogic;
   _lastState = false;
-  _thisState = isDown();
+  _thisState = false;
+  update();
 }
 
 void Button::update(){
   _lastState = _thisState;
-  _thisState = isDown();
+  if(_invertedLogic){
+    _thisState = !digitalRead(_pin);
+  } else{
+    _thisState = digitalRead(_pin);
+  }
 
 }
 
@@ -25,7 +30,6 @@ bool Button::isUp(){
 
 bool Button::isDown(){
   return _thisState;
-
 }
 
 bool Button::isClicked(){
