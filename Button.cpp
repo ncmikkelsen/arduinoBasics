@@ -13,36 +13,30 @@ Button::Button(int pin, bool invertedLogic, bool internalPullup){
   _thisState = isDown();
 }
 
-float Button::getStatus(){
-  if(_lastState && isDown()){
-    return 1;
-  } else if(_lastState && isUp()){
-    return 0.75;
-  } else if(!_lastState && isDown()){
-    return 0.25;
-  } else if(!_lastState && isUp()){
-    return 0;
-  }
-}
-
 void Button::update(){
-  _lastState = isDown();
+  _lastState = _thisState;
+  _thisState = isDown();
+
 }
 
 bool Button::isUp(){
-  bool state = digitalRead(_pin);
-  if(_invertedLogic){
-    return state;
-  } else{
-    return !state;
-  }
+  return !_thisState;
 }
 
 bool Button::isDown(){
-  bool state = digitalRead(_pin);
-  if(_invertedLogic){
-    return !state;
-  } else{
-    return state;
-  }
+  return _thisState;
+
+}
+
+bool Button::isClicked(){
+  return !_thisState && _lastState; 
+}
+
+
+bool Button::isHeld(){
+  return _thisState && _lastState;
+}
+
+bool Button::isPressed(){
+  return _thisState && _lastState;
 }
