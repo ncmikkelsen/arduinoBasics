@@ -3,21 +3,26 @@
 
 #include "Arduino.h"
 
-class Button 
-{   
-  public:     
-    Button(int pin, bool invertedLogic, bool internalPullup);     
+class Button
+{
+  public:
+    Button(int pin, bool internalPullup, bool debounce);
     void update();
-    bool isUp();     
+    bool isUp();
     bool isDown();
     bool isClicked();
     bool isHeld();
     bool isPressed();
 
   private:
+    bool _lastReading;
+    bool _thisReading;
     bool _lastState;
     bool _thisState;
+    bool _internalPullup;
+    bool _debounce;
     int _pin;
-    bool _invertedLogic;
+    unsigned long _lastDebounceTime;
+    unsigned long _debounceDelay;
 };
 #endif
