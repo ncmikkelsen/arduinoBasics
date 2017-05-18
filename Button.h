@@ -14,6 +14,7 @@ class Button
     bool isReleased();
     bool isHeld();
     bool isUnheld();
+    String getStatus();
 
   private:
     bool _lastReading;
