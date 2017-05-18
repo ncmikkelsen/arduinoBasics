@@ -10,9 +10,10 @@ class Button
     void update();
     bool isUp();
     bool isDown();
-    bool isClicked();
-    bool isHeld();
     bool isPressed();
+    bool isReleased();
+    bool isHeld();
+    bool isUnheld();
 
   private:
     bool _lastReading;

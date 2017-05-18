@@ -39,7 +39,7 @@ void Button::update(){
     if ((millis() - _lastDebounceTime) > _debounceDelay) {
       if (_thisReading != _lastState) {
         _thisState = _thisReading;
-      }
+      }tton
     }
 
   }
@@ -58,15 +58,18 @@ bool Button::isDown(){
   return _thisState;
 }
 
-bool Button::isClicked(){
-  return !_thisState && _lastState;
+bool Button::isPressed(){
+  return _thisState && !_lastState;
 }
 
+bool Button::isReleased(){
+  return !_thisState && _lastState;
+}
 
 bool Button::isHeld(){
   return _thisState && _lastState;
 }
 
-bool Button::isPressed(){
-  return _thisState && !_lastState;
+bool Button::isUnheld(){
+  return !_thisState && !_lastState;
 }
