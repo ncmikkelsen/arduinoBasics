@@ -1,25 +1,51 @@
 #include "Arduino.h"
 #include "Button.h"
 
-Button::Button(int pin, bool invertedLogic, bool internalPullup){
-  if(internalPullup){
-    pinMode(pin, INPUT_PULLUP);
-  } else{
-    pinMode(pin, INPUT);
-  }
+Button::Button(int pin, bool internalPullup, bool debounce){
   _pin = pin;
-  _invertedLogic = invertedLogic;
+  _internalPullup = internalPullup;
+  if(_internalPullup){
+    pinMode(_pin, INPUT_PULLUP);
+  } else{
+    pinMode(_pin, INPUT);
+  }
+
   _lastState = false;
   _thisState = false;
+  _lastReading = false;
+  _thisReading = false;
+  _debounce = debounce;
+  _lastDebounceTime = 0;
+  _debounceDelay = 50;
   update();
 }
 
 void Button::update(){
   _lastState = _thisState;
-  if(_invertedLogic){
-    _thisState = !digitalRead(_pin);
+  _lastReading = _thisReading;
+
+  if(_internalPullup){
+    _thisReading = !digitalRead(_pin);
   } else{
-    _thisState = digitalRead(_pin);
+    _thisReading = digitalRead(_pin);
+  }
+
+  // with debounce
+  if(_debounce){
+    if (_thisReading != _lastState && _thisReading != _lastReading) {
+      // reset the debouncing timer
+      _lastDebounceTime = millis();
+    }
+    if ((millis() - _lastDebounceTime) > _debounceDelay) {
+      if (_thisReading != _lastState) {
+        _thisState = _thisReading;
+      }
+    }
+
+  }
+  // without debounce
+  else {
+    _thisState = _thisReading;
   }
 
 }
@@ -33,7 +59,7 @@ bool Button::isDown(){
 }
 
 bool Button::isClicked(){
-  return !_thisState && _lastState; 
+  return !_thisState && _lastState;
 }
 
 
@@ -42,5 +68,5 @@ bool Button::isHeld(){
 }
 
 bool Button::isPressed(){
-  return _thisState && _lastState;
+  return _thisState && !_lastState;
 }
