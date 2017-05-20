@@ -20,6 +20,7 @@
 + AnalogInput(int pin)
 + getValue()
 + setThreshhold(int threshhold)
++ int getThreshhold()
 + bool isOver()
 + bool isUnder()
 + bool movedOVer()
