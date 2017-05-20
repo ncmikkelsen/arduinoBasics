@@ -26,13 +26,3 @@
 + bool movedUnder()
 + bool stayedOver()
 + bool stayedUnder()
-
-## ~~Output~~
-+ ~~pin~~
-+ ~~state~~
-+ ~~toggle()~~
-+ ~~off()~~
-+ ~~on()~~
-+ ~~getState()~~
-
-## Analog output/pwm
