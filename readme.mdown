@@ -1,23 +1,31 @@
 # Arduino Basics
 
-## Input
-+ pin
-+ switched logic
-+ input_pullup
+
+## Working
+
+### Button
++ Button(int pin, bool internalPullup, bool debounce)
++ void update()  
++ bool isDown()  
++ bool isUp()  
++ bool isPressed()  
++ bool isReleased()  
++ bool isHeld()  
++ bool isUnheld()  
++ String getStatus()  
 
 
-### Button (subclass of input)
-+ getStatus()
-    * Status.clicked
-    * Status.pressed
-    * Status.released
-+ update()
-
-
-## Analog Input
-+ pin 
+## Work in Progress
+### Analog Input
++ AnalogInput(int pin)
 + getValue()
-+ conversion
++ setThreshhold(int threshhold)
++ bool isOver()
++ bool isUnder()
++ bool movedOVer()
++ bool movedUnder()
++ bool stayedOver()
++ bool stayedUnder()
 
 ## ~~Output~~
 + ~~pin~~
