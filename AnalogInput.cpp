@@ -14,11 +14,12 @@ AnalogInput::AnalogInput(int pin, int threshold){
 }
 
 void update() {
-
+	_lastReading = _thisReading;
+	_thisReading = analogRead(_pin);
 }
 
 int getValue(){
-
+	return _thisReading;
 }
 
 void setThreshhold(int threshold){
