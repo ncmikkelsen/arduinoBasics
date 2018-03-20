@@ -51,31 +51,31 @@ bool stayedOver(){
 }
 
 bool stayedUnder(){
-		return (_thisReading < _threshold && _lastReading < _threshold);
+	return (_thisReading < _threshold && _lastReading < _threshold);
 }
 
 bool isOver(int threshold){
-
+	return _thisReading > threshold;
 }
 
 bool isUnder(int threshold){
-
+	return _thisReading < threshold;
 }
 
 bool movedOver(int threshold){
-
+	return (_thisReading > threshold && _lastReading < threshold);
 }
 
 bool movedUnder(int threshold){
-
+	return (_thisReading < threshold && _lastReading > threshold);
 }
 
 bool stayedOver(int threshold){
-
+	return (_thisReading > threshold && _lastReading > threshold);
 }
 
 bool stayedUnder(int threshold){
-
+	return (_thisReading < threshold && _lastReading < threshold);
 }
 
 
