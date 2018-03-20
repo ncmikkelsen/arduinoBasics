@@ -23,11 +23,11 @@ int getValue(){
 }
 
 void setThreshhold(int threshold){
-
+	_threshold = threshold;
 }
 
 int getThreshhold(){
-
+	return _threshold;
 }
 
 bool isOver(){
