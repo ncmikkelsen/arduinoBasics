@@ -31,27 +31,27 @@ int getThreshhold(){
 }
 
 bool isOver(){
-
+	return _thisReading > _threshold;
 }
 
 bool isUnder(){
-
+	return _thisReading < _threshold;
 }
 
 bool movedOver(){
-
+	return (_thisReading > _threshold && _lastReading < _threshold);
 }
 
 bool movedUnder(){
-
+	return (_thisReading < _threshold && _lastReading > _threshold);
 }
 
 bool stayedOver(){
-
+	return (_thisReading > _threshold && _lastReading > _threshold);
 }
 
 bool stayedUnder(){
-
+		return (_thisReading < _threshold && _lastReading < _threshold);
 }
 
 
