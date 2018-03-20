@@ -5,7 +5,6 @@ AnalogInput::AnalogInput(int pin){
 	_pin = pin;
 	_threshold = -1;
 	pinMode(_pin, INPUT);
-
 }
 
 AnalogInput::AnalogInput(int pin, int threshold){
@@ -13,5 +12,49 @@ AnalogInput::AnalogInput(int pin, int threshold){
 	_threshold = threshold;
 	pinMode(_pin, INPUT);
 }
+
+void update() {
+
+}
+
+int getValue(){
+
+}
+
+void setThreshhold(int threshold){
+
+}
+
+int getThreshhold(){
+
+}
+
+bool isOver(){
+
+}
+
+bool isUnder(){
+
+}
+
+bool movedOver(){
+
+}
+
+bool movedUnder(){
+
+}
+
+bool stayedOver(){
+
+}
+
+bool stayedUnder(){
+
+}
+
+
+
+
 
 
