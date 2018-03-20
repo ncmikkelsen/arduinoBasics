@@ -54,6 +54,29 @@ bool stayedUnder(){
 		return (_thisReading < _threshold && _lastReading < _threshold);
 }
 
+bool isOver(int threshold){
+
+}
+
+bool isUnder(int threshold){
+
+}
+
+bool movedOver(int threshold){
+
+}
+
+bool movedUnder(int threshold){
+
+}
+
+bool stayedOver(int threshold){
+
+}
+
+bool stayedUnder(int threshold){
+
+}
 
 
 
