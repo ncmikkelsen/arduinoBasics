@@ -1,15 +1,19 @@
 #include "Arduino.h"
-#include "AnalogInput_h"
+#include "AnalogInput.h"
 
 AnalogInput::AnalogInput(int pin){
 	_pin = pin;
 	_threshold = -1;
+	_lastReading = 0;
+	_thisReading = 0;
 	pinMode(_pin, INPUT);
 }
 
 AnalogInput::AnalogInput(int pin, int threshold){
 	_pin = pin;
 	_threshold = threshold;
+	_lastReading = 0;
+	_thisReading = 0;
 	pinMode(_pin, INPUT);
 }
 
