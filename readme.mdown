@@ -1,6 +1,5 @@
 # Arduino Basics
 
-
 ## Working
 
 ### Button
@@ -14,16 +13,26 @@
 + bool isUnheld()  
 + String getStatus()  
 
-
-## Work in Progress
 ### Analog Input
 + AnalogInput(int pin)
++ AnalogInput(int pin, int threshold)
 + getValue()
-+ setThreshhold(int threshhold)
-+ int getThreshhold()
++ setThreshold(int threshold)
++ int getThreshold()
 + bool isOver()
 + bool isUnder()
-+ bool movedOVer()
++ bool movedOver()
 + bool movedUnder()
 + bool stayedOver()
 + bool stayedUnder()
++ bool isOver(int threshold)
++ bool isUnder(int threshold)
++ bool movedOver(int threshold)
++ bool movedUnder(int threshold)
++ bool stayedOver(int threshold)
++ bool stayedUnder(int threshold)
+
+## Work in Progress
+
+## To do
+
